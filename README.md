@@ -15,6 +15,13 @@ builders, geo-master-blueprint, legal-page-rewrite, and the rest).
 
 ## Workflows
 
+> **Status (2026-07-16):** this account's claude.ai-hosted skills are NOT
+> visible to the Console org's Skills API (all lookups 404), so the
+> API workflows below don't work for it today. Use the plain-text
+> descriptions in [`fixes/`](fixes/) and update each skill in
+> claude.ai → Settings → Capabilities → Skills instead. The tooling stays
+> for when the skills live in an API-visible org.
+
 **Apply the current audit's description fixes** (one command, all 9 skills):
 
 ```bash
