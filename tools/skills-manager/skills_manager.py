@@ -52,6 +52,18 @@ def _has_credentials() -> bool:
 
 
 def client() -> Anthropic:
+    import os
+    key = os.environ.get("ANTHROPIC_API_KEY", "")
+    if key and not key.isascii():
+        fail(
+            "your ANTHROPIC_API_KEY contains masked characters (•••) -- you copied\n"
+            "the hidden key display from the console's key list. The full key is\n"
+            "shown only once, in the dialog when the key is created. Create a new\n"
+            "key at https://platform.claude.com/settings/keys, click Copy in the\n"
+            "creation dialog, then re-run:  set ANTHROPIC_API_KEY=<pasted key>"
+        )
+    if key and not key.startswith("sk-ant-"):
+        fail("ANTHROPIC_API_KEY doesn't look like an Anthropic key (should start with sk-ant-)")
     if not _has_credentials():
         fail(
             "no API key found. Get one at https://console.anthropic.com (same\n"
