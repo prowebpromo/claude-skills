@@ -33,13 +33,35 @@ MAX_DESCRIPTION_CHARS = 1024
 DEFAULT_FIXES = Path(__file__).parent / "audit_fixes.json"
 
 
-def client() -> Anthropic:
-    return Anthropic()
-
-
 def fail(msg: str) -> "NoReturn":  # noqa: F821
     print(f"error: {msg}", file=sys.stderr)
     sys.exit(1)
+
+
+def _has_credentials() -> bool:
+    import os
+    if os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN"):
+        return True
+    # `ant auth login` profiles, which the SDK also resolves
+    for base in (os.environ.get("APPDATA", ""), os.path.expanduser("~/.config")):
+        if base and (Path(base) / "Anthropic").exists():
+            return True
+        if base and (Path(base) / "anthropic").exists():
+            return True
+    return False
+
+
+def client() -> Anthropic:
+    if not _has_credentials():
+        fail(
+            "no API key found. Get one at https://console.anthropic.com (same\n"
+            "account as your claude.ai login), then set it for this shell:\n"
+            '  Windows cmd:   set ANTHROPIC_API_KEY=sk-ant-your-real-key\n'
+            '  PowerShell:    $env:ANTHROPIC_API_KEY = "sk-ant-your-real-key"\n'
+            "  macOS/Linux:   export ANTHROPIC_API_KEY=sk-ant-your-real-key\n"
+            "Paste your actual key -- sk-ant-... in the docs is a placeholder."
+        )
+    return Anthropic()
 
 
 # ---------------------------------------------------------------- list

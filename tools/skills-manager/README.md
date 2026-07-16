@@ -13,8 +13,20 @@ fixes ship in [`audit_fixes.json`](audit_fixes.json), keyed to your skill IDs.
 
 ```bash
 pip install anthropic pyyaml
-export ANTHROPIC_API_KEY=sk-ant-...   # from console.anthropic.com, same account as claude.ai
 ```
+
+Then set your API key for the current shell. Create the key at
+[console.anthropic.com](https://console.anthropic.com) → API keys, under the
+**same account as your claude.ai login**, and paste the real value —
+`sk-ant-your-real-key` below is a placeholder:
+
+| Shell | Command |
+|---|---|
+| Windows cmd | `set ANTHROPIC_API_KEY=sk-ant-your-real-key` |
+| PowerShell | `$env:ANTHROPIC_API_KEY = "sk-ant-your-real-key"` |
+| macOS / Linux | `export ANTHROPIC_API_KEY=sk-ant-your-real-key` |
+
+(`set`/`export` last only for that terminal window — re-run it in each new one.)
 
 ## Apply the audit fixes
 
