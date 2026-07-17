@@ -1,0 +1,83 @@
+[
+  {
+    "name": "ai-visibility-trends",
+    "description": "Normalize AI citation-check data (ai-search-monitor CSVs, CitationIQ exports, manual checks) into one ledger per client and produce share-of-answer trend tables, competitor share, anomaly flags, and paste-ready fragments for IOs and C-suite reports. Trigger on: AI visibility trend, share of answer, citation trend, brand presence trend, or a dropped brand_presence CSV. Do NOT use to run new citation checks — this skill analyzes data already collected."
+  },
+  {
+    "name": "csuite-report",
+    "id": "skill_01Ma9Mpa1msU9HPJcSb3tWFN",
+    "description": "Generate the monthly C-suite executive report for a retained SEO/AI-visibility/PPC client — a 1-2 page plain-English brief for firm owners, zero marketing vocabulary. Trigger on: C-suite report, executive summary, client monthly report, \"is the investment working\", QBR or renewal-prep summaries, or dropped GA4/GSC/SERP/PPC exports needing a client-facing summary. Reports outcomes; does not plan work — use gsc-sow-builder for recovery plans, sitebulb-sow-builder for technical audits."
+  },
+  {
+    "name": "diagnostic-builder",
+    "description": "Build the two paid prospect diagnostics: the Traffic Exposure Analysis (query/page risk map, fix-first list, 90-day roadmap) and the AI Visibility Diagnostic (citation baseline across ChatGPT/Perplexity/Gemini/AI Overviews). Trigger on: diagnostic, traffic exposure analysis, AI visibility diagnostic, citation or prospect audit, \"is [prospect] getting cited by AI\" — for domains not yet retained clients. Do NOT use for monthly reporting (csuite-report), recovery SOWs (gsc-sow-builder), or monthly plans (io-generator)."
+  },
+  {
+    "name": "entitymap-generator",
+    "description": "Generate a spec-compliant EntityMap v1.0 for a website — entitymap.json + entitymap.html + discovery snippets (robots.txt, link tag, sitemap entry). EntityMap is an open standard (sitemap.xml for AI/LLM systems) describing what a site knows, its entities, relations, and evidence. Trigger on: create/build an entitymap, make a site AI-readable, entity-first indexing, GEO/AEO entity layer, entitymap.org, or EntityMap v1.0."
+  },
+  {
+    "name": "fable-method",
+    "id": "skill_01CkmEB4uKEXX4ZkZJvMo2LG",
+    "description": "High-rigor verification method that runs ALONGSIDE a specialist skill, not instead of it — it governs HOW work is done (claim verification, source checking, self-audit passes) while the specialist governs WHAT is produced. Trigger on explicit invocation (\"fable method\", \"high rigor\", \"verify this\", \"be thorough\") or high-stakes deliverables: legal/YMYL content, client-facing documents, present-day facts that must be verified. Do NOT load for routine drafts, brainstorming, or quick questions."
+  },
+  {
+    "name": "gbp-optimization",
+    "description": "Audit and optimize a Google Business Profile and local-SEO signals: weighted profile scoring, category strategy, review velocity plan, NAP/citation consistency, LocalBusiness schema, landing page alignment. Trigger on: GBP audit, Google Business Profile or Maps listing optimization, local SEO audit, citation/NAP check, map pack presence, review strategy. Outputs .docx plan + .xlsx citation log. Do NOT use for organic recovery SOWs (gsc-sow-builder), internal link plans (internal-linking), or landing page copy."
+  },
+  {
+    "name": "geo-master-blueprint",
+    "id": "skill_01Qeri2ANZw57gUqXs3Es2iA",
+    "description": "Execute the GEO-Master Content Blueprint — end-to-end production of articles that rank in traditional search AND earn LLM citations (ChatGPT, Claude, Perplexity, Gemini). Trigger on: GEO- or AEO-optimized article, \"run the blueprint on [topic]\", citation-ready or LLM-optimized content, any blueprint phase (0-6), content map, evidence pool, or qa_audit. Handles editorial articles, legal and healthcare included. Do NOT use for legal practice-area page rewrites (legal-page-rewrite) or social posts (social-ai-team)."
+  },
+  {
+    "name": "gsc-sow-builder",
+    "id": "skill_011q9q9R4wt1ozAEfrMhhf15",
+    "description": "Generate a 9-week SEO/GEO recovery SOW from Google Search Console CSV exports (Pages.csv/Queries.csv) plus live Ahrefs data — KPI baselines, redirect registry, regression pages, CTR rewrite batches, week-by-week tasks. Trigger on: GSC exports plus any audit, sprint plan, work plan, SOW, or recovery roadmap request. Do NOT use for prospect diagnostics (diagnostic-builder), retained-client monthly plans (io-generator), or executive summaries (csuite-report)."
+  },
+  {
+    "name": "internal-linking",
+    "description": "Produce a prioritized internal link plan — source page, target page, anchor text, placement — from Sitebulb link exports, GSC exports, or a bundled crawler. Trigger on: internal link plan, internal linking audit, link opportunities, link equity distribution, orphan page fixes, crawl depth fixes, internal anchor text review. Outputs .xlsx link plan plus orphan/depth fix lists. Do NOT use for dev SOWs (sitebulb-sow-builder), GSC recovery SOWs (gsc-sow-builder), external link building, or page content."
+  },
+  {
+    "name": "io-generator",
+    "description": "Generate Insertion Orders (IOs) for SEO/AEO/GEO, content, and PPC engagements with 3/6/12-month projection and term-over-term continuity. Trigger on: insertion order, IO, monthly work plan for a retained client, \"roll the IO forward\", renewal IO, a prior IO plus fresh GSC/GA4/AI-visibility data, or a referenced client profile/state file. Do NOT use for one-off recovery SOWs with no engagement context (gsc-sow-builder), Sitebulb dev handoffs (sitebulb-sow-builder), or standalone PPC work orders (ppc-sow-builder)."
+  },
+  {
+    "name": "legal-page-rewrite",
+    "id": "skill_01LrsNdXJF9UgHG6D6HQG4uT",
+    "description": "Three-stage system for legal landing and practice-area pages: Stage 1 verification blueprint, Stage 2 execution draft, Stage 3 critique/audit (can run standalone). Optimizes for Google rankings, LLM citations, CRO, and SSIT gate survival. Trigger on rewrite/audit/critique of a page ONLY when the page belongs to a law firm or the context is legal — all legal content is YMYL/high-stakes. Do NOT use for legal blog posts or articles (geo-master-blueprint) or WordPress HTML builds (wp-classic-designer)."
+  },
+  {
+    "name": "ppc-sow-builder",
+    "id": "skill_01QDmo7UyAULC4yAKrpBCRYL",
+    "description": "Build a PPC work order / SOW from Google Ads or Microsoft (Bing) Ads exports (Campaigns, Search keywords, Auction insights, Devices, Demographics, Day & hour). Trigger on: PPC SOW, paid search SOW, PPC or Google Ads or Bing work order, \"turn this ad data into a work order\", or dropped ad-platform exports with a prior PPC SOW. Client, budgets, and standing rules are inputs, never hardcoded. Do NOT use for organic SOWs (gsc-sow-builder), dev SOWs (sitebulb-sow-builder), or monthly IOs (io-generator)."
+  },
+  {
+    "name": "proposal-builder",
+    "description": "Turn a completed diagnostic into a scoped monthly proposal mapped to the Essentials/Authority/Command tiers, with the 30-day diagnostic fee credit applied and a pre-filled io-generator client profile emitted. Trigger on: build a proposal for [prospect], scope [prospect] into a tier, turn this diagnostic into a proposal, which package fits [prospect]. Do NOT use to write the diagnostic itself (diagnostic-builder) or the monthly IO once signed (io-generator)."
+  },
+  {
+    "name": "scored-eval",
+    "description": "Score content outputs against a numeric rubric using a judge model, aggregate across a frozen golden set, and diff one version against a prior one to catch silent regressions. Trigger on: score a batch of articles or pages, run a scored eval, judge outputs against a rubric, \"did v-N+1 beat v-N\", regression check on a content version, build or run a golden set. Ships GEO, legal, and PPC rubrics (--rubric); runs on any OpenRouter model. Measures whether a content system improved, not just changed."
+  },
+  {
+    "name": "sitebulb-sow-builder",
+    "id": "skill_01LzBGUvhq74j3Pmz4z8ooD8",
+    "description": "Turn a Sitebulb audit export into an idiot-proof developer SOW — .docx SOW plus .xlsx ticket log with exact URLs, exact before/after HTML, and acceptance criteria; title/meta/H1 rewrites follow the embedded v6.0 generator rules. Trigger on: Sitebulb CSVs or a .sbp file plus any work plan, ticket list, scope, or dev handoff request. Sitebulb exports ONLY — do NOT use for Screaming Frog or Ahrefs crawls, generic SEO questions, or strategy discussions."
+  },
+  {
+    "name": "social-ai-team",
+    "description": "Create platform-ready social media content with a multi-role AI team. Trigger on: write social posts, LinkedIn/Instagram/X/Facebook content, social campaign, content calendar, captions, post ideas, a week of posts, or a topic/URL/brief to turn into social content — even casual asks like \"write a few LinkedIn posts\". Do NOT use for long-form blog posts, newsletters, or ad copy unless social posts are the primary deliverable."
+  },
+  {
+    "name": "social-performance-review",
+    "id": "skill_01Q9JaP4xpo7u8ctiKqBWAtf",
+    "description": "Review and debrief social media content performance. Trigger on: review my social posts, what worked this month, which posts did best, social recap or audit, what flopped, or dropped engagement numbers/screenshots/analytics for social posts. Extracts lessons and updates best-performers.md to feed the social-ai-team skill's next campaign cycle. Social platforms only — do NOT use for organic/article content performance (GSC/GA4 territory)."
+  },
+  {
+    "name": "wp-classic-designer",
+    "id": "skill_01JLQpXthRnqpzA7MpAPpqK1",
+    "description": "Design and build WordPress Classic Editor pages and sections as copy-paste HTML — hero, features, pricing tables, CTA banners, FAQs, testimonials, full landing page layouts. Trigger on: design or build a page/landing page for WordPress, Classic Editor HTML, WordPress-compatible HTML. Builds the HTML shell only — do NOT use for Gutenberg blocks, PHP/plugin/theme development, or legal landing page copy and strategy (legal-page-rewrite)."
+  }
+]
