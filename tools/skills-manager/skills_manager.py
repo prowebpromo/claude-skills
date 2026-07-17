@@ -73,7 +73,9 @@ def client() -> Anthropic:
             "  macOS/Linux:   export ANTHROPIC_API_KEY=sk-ant-your-real-key\n"
             "Paste your actual key -- sk-ant-... in the docs is a placeholder."
         )
-    return Anthropic()
+    # /v1/skills is gated behind this beta header; some SDK versions don't
+    # inject it for beta.skills.* calls, which surfaces as a 404 on list.
+    return Anthropic(default_headers={"anthropic-beta": "skills-2025-10-02"})
 
 
 # ---------------------------------------------------------------- list
