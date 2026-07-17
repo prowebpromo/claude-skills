@@ -1,6 +1,11 @@
 # skills/
 
-Exported skill sources land here — one directory per skill.
+Skill sources live here — one directory per skill. Two kinds:
+
+- **Authored here** (e.g. `internal-linking/`) — written in this repo first,
+  then zipped and uploaded in claude.ai → Settings → Capabilities → Skills.
+- **Exported** from the Skills API via `skills_manager.py pull` (workflow
+  below; currently blocked, see the root README status note).
 
 ```bash
 cd ../tools/skills-manager
