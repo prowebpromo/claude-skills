@@ -66,6 +66,15 @@ edit.
 
 ## How to apply
 
+> **Status 2026-07-17:** the API route below currently fails for this
+> account — `GET /v1/skills` returns 404 `not_found_error` even with a
+> valid key (models list works) and the `skills-2025-10-02` beta header
+> sent explicitly. The org behind the console API key does not have
+> Skills API access to the claude.ai workspace where the skills live.
+> Until that's resolved (admin enabling API access, or a key from the
+> right org), **apply by hand from `fixes/`** — one copy-paste per
+> skill in claude.ai → Settings → Capabilities → Skills.
+
 The trimmed texts ship in
 [`tools/skills-manager/trim_fixes.json`](../tools/skills-manager/trim_fixes.json).
 From a machine with your `ANTHROPIC_API_KEY` set (same account as your
