@@ -30,8 +30,9 @@ WordPress has no native "draft" for a published post. Updating one changes it li
 | 59663 | same | Meta (~150) | TruckMap and TruckRouter.com flag low bridges and weight limits Google Maps misses. See when free truck GPS apps work for RVs and where they fall short. |
 | 58167 | /resources/can-someone-live-in-a-camper-on-my-property/ | SEO title (60) | Can Someone Live in a Camper on Your Property? Laws by State |
 | 58167 | same | Meta (150) | It depends on state law, county zoning and permits. See 2026 rules by state, how long a guest can stay, permit steps and the tenant-law trap to avoid. |
-| 56261 | /boondocking-guide/the-best-rv-rental-companies-of-2026/ | SEO title (62) | Best RV Rental Companies 2026: Cruise America and Alternatives |
+| 56261 | /boondocking-guide/the-best-rv-rental-companies-of-2026/ | SEO title | HOLD. The live page has no Cruise America alternatives section (checked 2026-10-03). Add the section first, then use: Best RV Rental Companies 2026: Cruise America and Alternatives |
 | 56261 | same | Meta (142) | RV rentals run 20-60% above advertised rates once fees hit. Compare Cruise America, Outdoorsy and RVshare on real trip totals before you book. |
+| 59663 | /resources/whats-the-best-free-rv-gps-app/ | Content | Delete the leaked one-line comment `<!-- Paste into WordPress > Pages > Edit > Text tab -->` (found 2026-10-03) |
 | 57732 | /resources/exclusive-senior-citizen-discounts-for-campers/ | Content | Delete the leaked HTML comment that begins `<!-- ====...PAGE: Senior RV Camping Discounts` and contains "Paste into WordPress". Change nothing else. Re-crawl after and confirm 1 H1 and unchanged word count (about 4,950). |
 
 Notes on the package:
@@ -42,6 +43,10 @@ Notes on the package:
 - Camper: this keeps "someone", because "how long can someone live…" had clicks at pos 5.19. The H1 stays unchanged and still carries "How Long".
 - RV rentals: about two-thirds of the impressions are AI-prompt-style queries, so expect only a small CTR change. The title assumes a "Cruise America alternatives" section exists. Check the page, and add the section first if it's missing.
 - Fact check: the 20-60% figure and the Outdoorsy/RVshare/Cruise America names come from the page itself, not from independent checks.
+
+## Recheck 2026-10-03 (same session, credentials still not loaded)
+- The credential variables were absent again because the paste went into the old session. Start a genuinely new session.
+- All current values were re-read publicly and match the table in the chat reply. The RV rental post's REST `modified` is 2025-09-08, but the schema and byline say May 2026. Check that the visible date matches the actual edits.
 
 ## Also queued (needs approval, low risk)
 - Redirection plugin:
