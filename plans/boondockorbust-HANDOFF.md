@@ -4,7 +4,7 @@ Repo: `prowebpromo/claude-skills`, branch `claude/clever-ptolemy-rj131c`
 Plan: `plans/boondockorbust-2026-10-gsc-action-plan.md` (v2.1, includes the live-site check of 2026-10-03)
 
 ## Paste this to start the new session
-> Resume Boondock or Bust work. Read `plans/boondockorbust-HANDOFF.md` and `plans/boondockorbust-2026-10-gsc-action-plan.md` on branch `claude/clever-ptolemy-rj131c`. Confirm `BOB_WP_USER` and `BOB_WP_APP_PASSWORD` are set and authenticate read-only first. Then show me the current vs proposed values for the change package before writing anything.
+> Resume Boondock or Bust work. Read `plans/boondockorbust-HANDOFF.md` and `plans/boondockorbust-2026-10-gsc-action-plan.md` on branch `claude/clever-ptolemy-rj131c`. Confirm `Boondockorbust_WP_USER` and `Boondockorbust_WP_APP_PASSWORD` are set (the `BOB_WP_*` names were wrong) and authenticate read-only first. Then show me the current vs proposed values for the change package before writing anything.
 
 ## State at handoff
 - Network: `boondockorbust.com` is reachable (allowlisted).
@@ -57,7 +57,7 @@ Notes on the package:
 - UTV PDF `/wp-content/uploads/2026/02/navigating-the-asphalt-with-your-utv.pdf`: add a noindex header (LiteSpeed/.htaccess) or leave it as is. This needs a decision.
 
 ## Implementation notes
-- Auth: HTTP Basic with `$BOB_WP_USER:$BOB_WP_APP_PASSWORD` against `https://boondockorbust.com/wp-json/`. First call: `GET /wp/v2/users/me?context=edit` to confirm the role (Editor expected).
+- Auth: HTTP Basic with `$Boondockorbust_WP_USER:$Boondockorbust_WP_APP_PASSWORD` against `https://boondockorbust.com/wp-json/`. First call: `GET /wp/v2/users/me?context=edit` to confirm the role (Editor expected).
 - Raw content: `GET /wp/v2/posts/<id>?context=edit` (use `content.raw`).
 - Rank Math fields: the meta keys are `rank_math_title` and `rank_math_description`. The usual write path is `POST /rankmath/v1/updateMeta` with `objectID`, `objectType: "post"` and `meta: {...}`. This endpoint was not tested. Confirm it on one post, then re-crawl `<title>` and the meta description to verify.
 - Verify after each change: the live `<title>`, the meta description, the H1 count, the canonical and robots meta. Use `/tmp/.../scratchpad/crawl.py` logic, or re-create it: urllib with no redirect follow, regex for the title/meta/canonical, and html.parser for word counts. A regex word count breaks on the senior page because of the leaked comment.
@@ -66,3 +66,7 @@ Notes on the package:
 ## Open items still needing data
 - Query-filtered GSC page reports for "boondocking" and "dispersed camping", to choose the boondocking pillar and confirm which URL ranks for the dispersed queries.
 - Export dates for Pages.csv and Queries.csv.
+
+## Update 2026-10-03 (cloud session)
+- The credentials are set as `Boondockorbust_WP_USER` / `Boondockorbust_WP_APP_PASSWORD`, but REST auth fails with 401 `rest_not_logged_in`. A bogus login fails the same way, so the Authorization header is not reaching PHP.
+- Execution has moved to Cowork. See `plans/boondockorbust-COWORK-HANDOFF.md`.
