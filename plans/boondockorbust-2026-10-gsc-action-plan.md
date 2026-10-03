@@ -17,6 +17,43 @@ Each task carries two statuses:
 
 ---
 
+## Live check (crawled 2026-10-03)
+
+Most target pages were edited between Sept 25 and Oct 1, 2026, at or after the end of the GSC window. The export therefore measures the old versions of those pages.
+
+Rule: don't re-edit a page changed on or after Sept 25 until 28 days of post-change data exist. Measure it instead.
+
+| Page | Last modified | Live title | Status |
+|---|---|---|---|
+| Walmart | 2026-05-23 | Walmart Overnight RV Parking Policy by State 2026 | Edit now (1.1) |
+| RV rental companies | 2026-05-22 | Best RV Rental Companies 2026: Real Costs Compared | Edit now (2.3) |
+| Free RV GPS app | 2026-07-18 | Free Truck GPS Apps for RVers: Avoid Low Bridges (2026) | Edit now: title and H1 miss "free RV GPS app" (pos 9.29) |
+| Camper on property | 2026-09-12 | How Long Can Someone Live in a Camper on Your Property? | Edit now (1.7): "can I live" phrasing not covered |
+| UTV street legal | 2026-10-01 | Street Legal UTV Laws by State (2026): All 50 States Checked | Measure. "Side by side" is still missing, so queue it for the next edit |
+| Dump stations | 2026-09-29 | RV Dump Stations: Finder Apps, Fees and Free Options | Measure. "Near me" is still missing, so queue it |
+| Free campsite apps | 2026-09-30 | Best Free Camping Apps 2026 \| Guide to Free RV Sites | Measure |
+| Yosemite | 2026-09-26 | Yosemite 2026 RV Guide: Parking, Passes and Towing | Measure. The meta now covers fees |
+| Dispersed / Google Maps | 2026-09-29 | How to Find Dispersed Camping With Google Maps | Measure. The title already says "dispersed camping", so the original premise was wrong |
+| Senior discounts | 2026-09-29 | Senior RV Camping Discounts: Are They Worth It? (2026) | Measure. Remove the leaked build-note HTML comment from the content |
+| Boondocking pages (4) | 2026-09-25 to 09-30 | See Batch 3 | Consolidation decision still needed |
+| Membership pages | 2026-09-29 to 09-30 | See 4.1 | Duplicate titles confirmed |
+| Bully Hill | 2026-09-29 | Bully Hill Vineyards Harvest Hosts RV Stay Review | Measure |
+
+Already handled on the live site:
+- The 2025 used Class B guide 301s to the 2026 version.
+- The 2025 best and worst Class B page 301s to the 2026 version.
+- The UTV and club-membership URL variants 301 correctly.
+- The `[YOUR-EMAIL-SIGNUP-URL]` placeholder is gone.
+
+Still open:
+- The blackjack URL, both `/routes/` pages and the Walmart variant `/resources/walmart-overnight-rv-parking-policy-state-2026` 301 to the homepage. Google usually treats a redirect to the homepage as a soft 404.
+  - Return 410 for the blackjack and `/routes/` URLs.
+  - Point the Walmart variant at the Walmart page.
+- The UTV PDF (`/wp-content/uploads/2026/02/navigating-the-asphalt-with-your-utv.pdf`) still returns 200. Add an `X-Robots-Tag: noindex` header, or link it only from the UTV page.
+- The senior discounts page publishes an editing-instructions HTML comment ("Paste into WordPress > Pages > Edit…") inside the content. Browsers ignore it, but it is public in the page source. Delete it. Spot checks of four other pages found no such comment.
+
+---
+
 ## Batch 0: baseline and site hygiene (do first, small)
 
 | # | Task | Evidence | Done when |
@@ -148,6 +185,14 @@ Query side:
 - "rv boondocking": 83, pos 18.39
 - "boondocking for beginners": 36, pos 40.44
 
+Live titles and H1s show four pages with the same promise:
+- boondocking-101 H1: "Ultimate Guide to RV Boondocking…"
+- `/rv-boondocking/` title: "Ultimate guide to RV boondocking…"
+- `/beginners-guide/` H1: "Beginner's Guide to RV Boondocking"
+- `boondocking-for-beginners`: "Boondocking for Beginners…"
+
+All four were edited between Sept 25 and 30. That edit tuned each page separately and did not consolidate them.
+
 Steps:
 1. Pick the primary URL from evidence, not from the name. `boondocking-for-beginners` ranks best right now, but boondocking-101 was the planned pillar. Check which URL Google shows for "boondocking" in a query-filtered GSC report. Also check backlinks to each candidate.
 2. Merge boondocking-101, `/rv-boondocking/` and `/beginners-guide/` into the primary where they substantially overlap. 301 the retired URLs and update the internal links that point to them.
@@ -162,6 +207,16 @@ Weakest assumption: that consolidation alone closes the gap. Site authority and 
 ## Batch 4: commercial content
 
 ### 4.1 Membership costs: expand existing pages, don't start from zero
+The live check confirms duplicate intent:
+- `guide-to-rv-club-memberships` title: "Are RV Memberships Worth It? 2026 Break-Even Math"
+- The economics report H1: "Are RV Memberships Worth It? Break-Even Math for 2026"
+- The Good Sam vs HH vs RVO title also leads on costs.
+
+Give each page one distinct job before adding anything:
+- The economics report becomes the cost-comparison hub.
+- The club guide covers which club fits which traveler.
+- The three-way comparison stays a head-to-head.
+
 Existing pages that already target this:
 - `/boondocking-guide/guide-to-rv-club-memberships/` (775 impr)
 - `/resources/the-2026-rv-membership-economics-report-break-even-analysis-hidden-cost-data/` (109)
