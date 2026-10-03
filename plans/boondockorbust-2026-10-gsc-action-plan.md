@@ -1,154 +1,203 @@
-# Boondock or Bust: GSC Action Plan (October 2026)
+# Boondock or Bust: GSC Action Plan (October 2026, v2)
 
-Source: GSC observations from the export window that ends September 30, 2026. Walmart clicks (1,343) match the earlier export, so this is the same window, not a trend shift.
+Version 2 uses the Pages.csv and Queries.csv exports. It keeps the four-batch structure and adds the corrections from the second review.
 
-Constraints on this draft:
-- No GSC source is connected in Ahrefs (project 7574333 returns no rows) or Windsor. Exact URLs and per-URL query lists still need to come from a GSC export.
-- boondockorbust.com was blocked by the network policy, so the current titles and on-page copy were not checked. Compare each proposed title with the live one before you publish.
-- Proposed titles stay under about 60 characters. Prices, laws and policy claims must be checked against primary sources on the day you publish. This plan states none of them as fact.
+## Data limits (read first)
+- The exports have no date range. The page totals don't match the earlier observations. In this export the Walmart page has 42,127 impressions and 659 clicks. The observations had 111K and 1,343. That makes this a different, probably shorter, window. Record the export dates and filters before using either set as a baseline.
+- Queries.csv is capped at 1,000 rows and leaves out anonymized queries. Walmart queries in it add up to 9,524 impressions, against 42,127 for the page. Query-level analysis covers only the visible share.
+- The exports have no query-to-page pairs. Wherever a task says "which URL ranks for X", run a GSC Performance report filtered by query and read the Pages tab.
+- The live site was not crawled because the network policy blocks it. Check current titles, H1s and canonicals before you edit.
+- Two corrections to the original brief:
+  - A move to page one does not predict a given traffic gain.
+  - Low CTR does not prove the title is wrong. Check the query mix, position, SERP features and device first.
 
-Order: Batch 1 → 2 → 3 → 4. The Walmart title moved into Batch 1 because it has the most clicks to gain for the least work.
-
----
-
-## Batch 1: existing-page pushes + Walmart title
-
-Shared steps for each page in this batch:
-1. Put a 40 to 60 word direct answer to the main query right under the H1.
-2. Add 3 to 5 contextual internal links from related posts. Use descriptive anchors that vary, not just "click here" or the exact keyword every time.
-3. Update the visible "last updated" date and `dateModified` in Article schema, but only when the content actually changed.
-4. Request indexing in GSC after publishing.
-5. Log the date each change shipped, so the 28-day before and after comparison uses clean windows.
-
-### 1.1 Walmart overnight parking (111K impr, pos 6.7, 1.21% CTR)
-- Problem: the title leads with "policy by state 2026". The question people search for ("can you park overnight at walmart", 2,544 impr, 0.79% CTR) never shows up in the title.
-- Title: `Can You Park Overnight at Walmart? 2026 Rules by State`
-- Meta: `Often yes, but it depends on the store manager and local law. See which states and cities restrict it, how to ask, and the etiquette that keeps lots open.`
-- On-page: open with a yes/it-depends answer and how to confirm with a specific store. Keep the by-state table below it. Before publishing, check the "manager and local law" wording against Walmart's current public statement.
-- Done when: the title and meta are live, the answer block sits above the fold, and the URL is resubmitted.
-- Target: CTR at position 6 to 7 rises from 1.21% toward 3%+ over 28 days. This target is an assumption based on typical page-one CTR. It has not been benchmarked for this site.
-
-### 1.2 UTV street legal laws (15,928 impr, pos 11.2, 0.4% CTR)
-- Title: `Street Legal UTV Laws by State (2026): Where You Can Drive`
-- Content: a state-by-state table (allowed / restricted / not allowed, registration path, plate type), an equipment checklist (lights, mirrors, horn, windshield, insurance), and a "how to make a UTV street legal" section. Cite each state's DMV or statute.
-- Links in: RV towing, off-road and dispersed camping posts.
-- Done when: every state row cites a source and has a check date.
-
-### 1.3 RV dump stations guide (10,634 impr, pos 14.8) + "near me" (~2,000 impr, ~0 clicks)
-- Title: `RV Dump Stations Near Me: How to Find One Fast (Free + Paid)`
-- Content: an H2 called "How to find an RV dump station near you" that covers apps, truck stops, rest areas, campgrounds, municipal sites and RV dealers. Add a comparison table (cost range, how to verify, hours caveat) and dump etiquette and steps.
-- Link to the free RV GPS app post and the free campsite apps post.
-- Do not build a fake locator. Point readers to the tools that have live data.
-
-### 1.4 Best apps for free campsites (8,738 impr, pos 14.8)
-- Title: `Best Apps for Free Campsites in 2026, Compared`
-- Content: a comparison table (free vs paid tier, offline maps, data source, best for). Give each app a "who it's for" verdict and state first-hand use where you have it.
-- Cross-link with 1.3, 1.6 and the boondocking pillar (Batch 3).
-
-### 1.5 Used Class B buyer's guide (8,601 impr, pos 11.7)
-- Title: `Used Class B RV Buyer's Guide: What to Check Before You Buy`
-- Content: a printable inspection checklist, chassis-specific weak points, a price/value section, and a link to the depreciation post (Batch 4.4) once it is live.
-- Done when: the checklist is live and the forward link is in place or queued.
-
-### 1.6 Best free RV GPS app (7,162 impr, pos 11.2, 102 clicks)
-- The title already earns clicks from page two, so don't change it. This page needs better content and more internal links.
-- Content: an updated comparison table, RV-specific routing (height/weight restrictions) per app, and offline support.
-- Links in: from 1.3, 1.4 and the pillar.
+Each task carries two statuses:
+- Implementation: VERIFIED / NOT VERIFIED
+- Performance impact: ESTABLISHED / NOT YET ESTABLISHED
 
 ---
 
-## Batch 2: titles that lose the click
+## Batch 0: baseline and site hygiene (do first, small)
 
-### 2.1 Yosemite toolkit (10,552 impr, 0.08% CTR, 8 clicks)
-Diagnose before rewriting:
-1. In GSC, filter Performance by Page = Yosemite URL, then export Queries.
-2. Decision rule:
-   - Mostly relevant queries (Yosemite camping, reservations, RV access): rewrite the title and meta to match the top 3 queries.
-   - Mostly irrelevant queries (broad "Yosemite" or news terms): don't optimize for them. Retarget the page at the relevant queries and accept fewer impressions.
-3. Deliverable: the query export, the decision, then the new title and meta.
-
-### 2.2 Google Maps dispersed camping guide (5,460 impr, 0.15% CTR)
-- Title: `How to Find Dispersed Camping on Google Maps (Step by Step)`
-- Meta: `Find free dispersed campsites with Google Maps layers, satellite view and public land boundaries. Then confirm legality before you go.`
-- Related check: "dispersed camping" queries rank around position 5 with zero clicks. In GSC, find which URL ranks for them. If it's this page, the new title fixes it. If it's another page, put "dispersed camping" plainly in that page's title too, and make sure the two pages don't compete for the same queries.
-
-### 2.3 Smaller CTR fixes
-Title formula: say what's on the page in the searcher's own words, then add a reason to click.
-
-| Page | Impr | CTR | Proposed title |
+| # | Task | Evidence | Done when |
 |---|---|---|---|
-| Senior discounts | 10.7K | 0.61% | `RV and Camping Senior Discounts: Every Deal Worth Using` |
-| RV rental companies | 7K | 0.40% | `Best RV Rental Companies Compared: Prices, Fees, Fine Print` |
-| Starlink data traps | 4.3K | 0.63% | `Starlink for RVs: Data Limits and Plan Traps to Avoid` |
-
-Before publishing each one, pull that page's top queries from GSC and adjust the wording if they differ from what the title assumes.
-
----
-
-## Batch 3: boondocking pillar repair
-
-Current state: "boondocking" (657 impr) ranks 23rd and "RV boondocking" ranks 23rd, both with zero clicks. The boondocking-101 pillar ranks 46th.
-
-### 3.1 Diagnose cannibalization first
-Position 46 for the pillar while the site ranks 23rd for the head term means a different URL is probably ranking for it.
-1. In GSC, filter Query = "boondocking", then open the Pages tab and list every URL that gets impressions.
-2. If another URL holds position 23:
-   - If it covers the same topic, merge it into the pillar and 301 redirect it.
-   - If it covers a subtopic, keep it, refocus its title on that subtopic, and link it up to the pillar.
-3. Confirm the pillar is indexed, self-canonical, and not blocked or noindexed.
-
-### 3.2 Consolidate internal links
-- Add the pillar to the main navigation and to the boondocking category hub.
-- On every post that mentions boondocking, link the first mention to the pillar. Vary the anchors: "boondocking", "what boondocking is", "boondocking for beginners", "RV boondocking guide".
-- Remove or redirect internal links that point to competing URLs for the head term.
-- Done when: a crawl shows the pillar as the most internally linked boondocking URL.
-
-### 3.3 Make it the definitive page
-- Start with a definition block: what boondocking is, in 2 sentences, plus how it differs from dry camping and dispersed camping.
-- Cover these entities: BLM land, national forests, Motor Vehicle Use Maps (MVUM), stay limits, Leave No Trace, power (solar, generator), water and waste management, connectivity, safety, and etiquette. Check each rule against BLM and USFS sources.
-- Add hub sections that link down to the cluster: free campsite apps (1.4), dump stations (1.3), Google Maps dispersed camping (2.2), Walmart (1.1), Starlink (2.3), and memberships (4.1).
-- Make the experience visible: real stays, photos and lessons learned. This is the information-gain edge on a term that generic listicles dominate.
-- Schema: Article with author and `dateModified`. Use FAQ markup only for real on-page Q&A.
-- Title: `Boondocking 101: The Complete Guide to Free RV Camping`
+| 0.1 | Record the baseline: export dates, search type, country/device filters, and per-URL clicks/impressions/CTR/position for every URL below | The window mismatch above | One dated baseline sheet plus a change log |
+| 0.2 | Investigate `/uncategorized/best-free-blackjack-software-for-online/` | An off-topic gambling URL that Google indexed | Confirmed clean or removed. If it was injected, check users, plugins and recent posts. URL returns 410/404 and is out of the sitemap |
+| 0.3 | Fix the placeholder link `[YOUR-EMAIL-SIGNUP-URL]` on `/resources/where-to-dump-trash-while-boondocking-legal-rules-disposal-locations/` | Google discovered it as a URL | Real signup URL in place, or the link removed |
+| 0.4 | Check redirects for URL variants: `/resources/street-legal-utv-laws/`, `/resources/walmart-overnight-rv-parking-policy-state-2026`, `/boondockering-guide/guide-to-rv-club-memberships/` | Variants are getting impressions | Each one 301s to its canonical URL |
+| 0.5 | Look at the off-topic `/routes/` pages (`pico-bolivar-summit`, `roraima-trek`) | Not RV content | Keep with a reason, or noindex/remove |
 
 ---
 
-## Batch 4: new content (affiliate-led)
+## Batch 1: existing pages + Walmart snippet
 
-### 4.1 Camping membership costs compared (new post)
-- Target queries: "good sam membership cost" (284 impr, pos 6.2, 0 clicks), "how much does harvest host cost" (148, pos 20), "thousand trails campgrounds" (241, pos 8.6, 0 clicks).
-- Working title: `Camping Membership Costs Compared: Good Sam, Harvest Hosts, Thousand Trails`
-- Structure: an answer table up top (annual cost, what's included, who it's for, break-even nights), then one section per membership, then "which one pays for itself".
-- Rules: take prices from each official pricing page on the day you publish, and show the check date. Add the affiliate disclosure above the first affiliate link.
-- Also update the old pages that rank for these queries with a link to the new post. Find them in GSC under Query → Pages.
+### 1.1 Walmart snippet
+URL: `/resources/walmart-overnight-rv-parking-policy-by-state-2026/` (42,127 impr, 1.56% CTR, pos 6.43)
 
-### 4.2 Harvest Hosts reviews: push from 13.5 to page one
-- Model it on the "RV Overnights vs Harvest Hosts" page, which gets 50 clicks at 10% CTR from position 3.6. Copy its structure: verdict up top, a pros and cons table, first-hand stay notes, and who should skip it.
-- Link it from 4.1 and from the comparison page.
+Query evidence (visible share only):
+- Question queries ("can you / does / is…") get 1.89% CTR across 6,914 impr at weighted pos 5.1.
+- Non-question queries get 4.48% across 2,610 impr at pos 5.7.
+- The head term "walmart overnight parking" already gets 9.69% at pos 3.36.
 
-### 4.3 Individual Harvest Hosts location reviews (open lane)
-- Pilot: Bully Hill Vineyards (1,370 impr, pos 9.7, 0 clicks).
-- Only publish if you stayed there or can document the visit. A review without first-hand detail is thin content.
-- Template: location summary, RV access and parking, the experience, purchase expectations, nearby, photos, and a verdict. Link to 4.2.
-- If the pilot earns clicks within 28 days, roll out to other locations you've visited.
+Question searchers click about half as often at the same position. Google may be answering them on the results page, but no SERP check has been done to confirm that. A title that mirrors the question is worth testing. It should not drop the head term.
 
-### 4.4 Class B RV depreciation (689 impr, pos 33, 0 clicks)
-- Working title: `Class B RV Depreciation: How Fast Values Drop by Year`
-- Data: cite valuation sources (e.g., J.D. Power RV values) or a documented sample of listings. Don't publish depreciation percentages without a named source.
-- Links: two-way with the used Class B buyer's guide (1.5).
+- Title: `Can You Park Overnight at Walmart? RV Rules by State` (51 chars). It keeps "by state" for the "which walmarts allow" queries and the state-specific ones.
+- H1: matches the question.
+- Opening paragraph: answers directly that it depends on the store manager and local ordinance. Check this against Walmart's current public statement.
+- Meta: answer first, then a pointer to the state table and the "how to confirm a store" steps.
+- Do not change the URL. The year in the slug stays. Plan to update the content in place each year.
+
+### 1.2 UTV street legal laws
+URL: `/resources/utv-street-legal-laws/` (10,000 impr, 0.31%, pos 9.88)
+- 1,052 of 2,181 cluster impressions use "side by side" wording, with 0 clicks. Put "side-by-side" in the title, H1 and one H2.
+- North Carolina queries total 313 impr. Add an NC section sourced from NCDMV or the state statute.
+- Title: `Are UTVs and Side-by-Sides Street Legal? Laws by State`
+- Make no blanket nationwide legality claims. Cite an official source for each state row.
+- Check the stray PDF `/wp-content/uploads/2026/02/navigating-the-asphalt-with-your-utv.pdf`. If it duplicates the page, canonicalize or noindex it.
+
+### 1.3 RV dump stations
+URL: `/resources/quick-guide-to-finding-rv-dump-stations-while-on-the-road/` (5,706 impr, 0.23%, pos 11.68)
+- "Near me" variants: 37 queries, 2,686 impr, 3 clicks, weighted pos 12.
+- Expect limited upside. "Near me" searches are usually served by map and local results. This is a SERP assumption that hasn't been checked.
+- Add an H2 called "Find an RV dump station near you". Cover the finder apps/sites, truck stop chains, rest areas and campgrounds, a "call ahead" fee and access check, and the "by zip code" and "map" phrasing.
+- Title: `RV Dump Stations Near Me: How to Find One Fast`
+- Do not imply live listings or location awareness.
+
+### 1.4 Free campsite apps
+URL: `/boondocking-guide/the-best-apps-for-finding-free-campsites/` (3,024 impr, 0.6%, pos 11.5)
+- Head-to-head queries convert: "ioverlander vs the dyrt", "the dyrt vs campendium" and "campendium vs ioverlander" get 4.08% CTR at pos 6.4. Head terms like "free camping app" sit at pos 40+.
+- Add head-to-head comparison sections and an "alternatives to FreeRoam / AllStays" section. Check current features and pricing for each app.
+- Clarify the overlap with the GPS app page and the Google Maps page (link between them, don't duplicate content).
+
+### 1.5 Used Class B buyer's guide (cannibalization)
+- `/class-b-rv/dont-buy-a-used-class-b-rv-in-2026-until-you-read-this-complete-guide/`: 2,586 impr, pos 12.34
+- `/class-b-rv/dont-buy-a-used-class-b-rv-in-2025-until-you-read-this/`: 161 impr, pos 8.24
+- `/class-b-rv/the-essential-class-b-rv-buying-guide-for-2026/`: 129 impr, pos 8.53
+- Same pattern on `/class-b-rv/honest-reviews-of-the-best-and-worst-class-b-rvs-of-2025/` vs `…-of-2026/`.
+
+Action: pick one primary used-buyer URL, merge the unique content into it, and 301 the 2025 version. Then strengthen the inspection and ownership-cost sections. Make no unsupported reliability claims.
+
+### 1.6 Free RV GPS app
+URL: `/resources/whats-the-best-free-rv-gps-app/` (3,027 impr, 48 clicks, pos 9.66)
+- Already earns clicks. Content work only: which apps are free, which support RV dimensions, and the routing limits.
+- RV-routing questions show up ("which gps apps route around low bridges…", "avoiding tight turns"). Answer them directly.
+
+### 1.7 Added: camper-on-property page (missing from the original brief)
+URL: `/resources/can-someone-live-in-a-camper-on-my-property/`
+- 19,445 impr, 0.38%, pos 7.63. Fragment URLs (#section-1 to 5, #scenario-answers, #zoning-quick-ref) add about 6,500 more impressions.
+- This is the second-largest impression page. Its CTR is close to the UTV page.
+- Queries split between "can someone live" and "can I live", and are state-specific (NC, PA, OH, GA).
+- Action: validate the query mix, tighten the title and answer around "it depends on local zoning", and add state quick answers sourced to statutes or county code. This is YMYL-adjacent, so make no blanket legality claims.
+
+---
+
+## Batch 2: low-CTR diagnosis and repair
+
+### 2.1 Yosemite toolkit
+URL: `/resources/the-2026-yosemite-toolkit-reservations-closures-parking-solved/` (4,879 impr, 1 click)
+- The visible queries are mostly about the entrance fee ("yosemite national park entrance fee per vehicle 7 days 2026" and variants). Several start with "+" or "%". That points to automated or tool-generated queries, not people. This is an inference that can't be verified from GSC.
+- The title promises reservations, closures and parking. It doesn't mention fees.
+- Decision:
+  - If the page covers fees, add a fee section sourced to NPS and put "entrance fee" in the meta.
+  - If it doesn't, leave the title and treat the impressions as low-value.
+  - Don't count prefixed queries in CTR targets.
+
+### 2.2 Dispersed camping
+URL: `/boondocking-guide/how-to-find-free-dispersed-camping-sites-using-google-maps/` (3,405 impr, 0.09%, pos 6.72)
+- The "dispersed" cluster has 2,761 impr and 1 click at pos 5.7. Most of it is "dispersed campi" (1,313), "dispersed camping near me" (601) and "dispersed camping" (384).
+- The slug already says "dispersed camping". The original premise that "the title never says dispersed camping" may be wrong. Confirm the live title.
+- More likely cause: intent mismatch. "Near me" and head-term searchers want locations or maps, not a Google Maps tutorial.
+- Action:
+  1. Confirm which URL ranks for these queries.
+  2. Test the title `Dispersed Camping Near You: Find Free Sites on Google Maps`.
+  3. Add a section on checking land status and rules (MVUM, BLM, stay limits) that cites agency sources.
+- Larger option, for a separate decision: a dispersed camping hub organized by state.
+
+### 2.3 RV rental companies
+URL: `/boondocking-guide/the-best-rv-rental-companies-of-2026/` (2,857 impr, 0.49%)
+- 729 of 1,131 rental-query impressions are long, AI-prompt-style queries ("find me rv rental options with top brand reputations", "give me a list of rv rental companies…"), with 1 click.
+- A title rewrite won't fix that share. Judge CTR on the conventional queries only ("best rv rental companies", "cruise america alternatives" with 204 impr at pos 10.24).
+- Action: add a "Cruise America alternatives" section and a reputation and customer service comparison. Check fees and terms against each company's site.
+
+### 2.4 Senior discounts and Starlink
+- `/resources/exclusive-senior-citizen-discounts-for-campers/` (3,304, 0.45%): the queries say "camping discounts", "senior camping discounts", "AARP". Membership and discount queries overall: 1,368 impr, 1 click. Check the current discount terms before rewriting.
+- `/resources/where-did-my-starlink-data-go-5-traps-draining-your-100gb-plan/` (1,880, 0.64%): check the current Starlink plan terms first. Low priority.
+
+### 2.5 Harvest Hosts reviews (fragmented)
+- Harvest Hosts queries add up to only 324 impr. "harvest hosts review" is at pos 26 in this window, not 13.5.
+- Coverage is split across `/resources/harvest-hosts-how-it-works-top-regrets/` (pos 18.3), `/blog/harvest-hosts-is-it-really-free-camping/` (pos 16.4) and the comparison pages.
+- Action: pick one review URL, merge in the unique content from the other, and keep the RV Overnights comparison page separate. Low volume, so do this after Batch 3.
+
+---
+
+## Batch 3: boondocking pillar
+
+Cannibalization confirmed at the page level:
+
+| URL | Impr | Pos |
+|---|---|---|
+| `/boondocking-guide/boondocking-for-beginners/` | 210 | 7.86 |
+| `/rv-boondocking/` | 203 | 30.38 |
+| `/boondocking-guide/boondocking-101-everything-you-need-to-know-to-get-started/` | 85 | 21.81 |
+| `/boondocking-guide/` (hub) | 77 | 11.18 |
+| `/beginners-guide/` | 71 | 28.18 |
+| `/boondocking-guide/boondocking-tips/` | 247 | 10.15 |
+
+Query side:
+- "boondocking": 320 impr, pos 16.04
+- "rv boondocking": 83, pos 18.39
+- "boondocking for beginners": 36, pos 40.44
+
+Steps:
+1. Pick the primary URL from evidence, not from the name. `boondocking-for-beginners` ranks best right now, but boondocking-101 was the planned pillar. Check which URL Google shows for "boondocking" in a query-filtered GSC report. Also check backlinks to each candidate.
+2. Merge boondocking-101, `/rv-boondocking/` and `/beginners-guide/` into the primary where they substantially overlap. 301 the retired URLs and update the internal links that point to them.
+3. Cover the core topics: definition, boondocking vs dry camping vs dispersed camping, finding legal sites, water, waste, power, connectivity, safety, etiquette and stay limits. Source rules to BLM and USFS.
+4. Build an internal link map from cluster pages to the pillar with varied anchors. Keep the links to specialist guides (LTVA, BLM rules, water management, pop-up camper).
+5. Done when: there is one designated pillar, the retired URLs 301, no broken links or orphans, and the internal-link crawl confirms the pillar as the top-linked boondocking URL.
+
+Weakest assumption: that consolidation alone closes the gap. Site authority and the competing results may limit the head term.
+
+---
+
+## Batch 4: commercial content
+
+### 4.1 Membership costs: expand existing pages, don't start from zero
+Existing pages that already target this:
+- `/boondocking-guide/guide-to-rv-club-memberships/` (775 impr)
+- `/resources/the-2026-rv-membership-economics-report-break-even-analysis-hidden-cost-data/` (109)
+- `/resources/rv-membership-break-even-calculator/`
+- `/boondocking-guide/good-sam-vs-harvest-hosts-vs-rvo/` (2,234)
+- `/resources/thousand-trails-membership-a-comprehensive-guide/` (749 impr, 0 clicks)
+
+Demand:
+- Good Sam cost queries: 632 impr, 4 clicks, pos 8.0
+- Thousand Trails: 469 impr, 0 clicks
+- "how much does harvest host cost": 73, pos 19.85
+
+A new "costs compared" post would compete with these five pages. Instead:
+- Make the membership economics report the cost hub. Retitle it around "camping membership costs compared".
+- Add dated, sourced price tables.
+- Link to it from the other four with cost-intent anchors.
+- Add the Good Sam and Harvest Hosts cost answers near the top.
+- Check every affiliate destination and disclosure.
+
+### 4.2 Bully Hill: the page already exists
+- `/blog/bully-hill-vineyards-harvest-host-review/` has 394 impr, pos 9.7 and 1 click. "bully hill vineyards reviews" has 277 impr and 0 clicks.
+- It is not an open lane. The page is there and doesn't win the click, and general winery-review searchers likely prefer review platforms.
+- Other location reviews also get little: Meiers Creek pos 15.4, Cayuga Ridge pos 13.7, Rustic Ridge pos 18.6.
+- Action: retitle around the RV and Harvest Hosts stay angle and refresh it with first-hand notes and photos. Don't scale location reviews until one of them earns clicks.
+
+### 4.3 Class B depreciation
+- "class b rv depreciation" has 238 impr at pos 32.4. "rv depreciation" has 160 at pos 75. The ranking URL is unknown.
+- Low volume. Write it after 1.5, sourced to valuation guides or documented sold-price data, not asking prices.
+- Link it two-way with the buyer's guide.
 
 ---
 
 ## Do not chase
-- Navigational queries such as "allstays" and "rv overnights". The official sites own those clicks.
+- Navigational queries: "allstays" (1,254 impr), "rv overnights" (731), "thousand trails" and "goodsam.com".
+- Query-operator or prompt-style impressions as CTR targets.
 
 ## Measurement
-- Baseline: the window that ends September 30.
-- Check each batch 28 days after it ships against the 28 days before it, matching days of the week.
-- Batch 1 and 4.2: average position and clicks per URL.
-- Batch 2: CTR at the same average position. A position change makes the CTR comparison invalid.
-- Batch 3: position for "boondocking" and "RV boondocking", the pillar's position, and whether one URL owns the head term.
-- Batch 4: indexed and ranking within 28 days, then affiliate clicks per post.
-
-## Data needed to close the gaps
-Export GSC Pages and Queries for the same window, plus page-filtered query exports for Yosemite, "boondocking" and "dispersed camping". Alternatively, connect Search Console to the Ahrefs Boondockorbust project. Either one lets these tasks name exact URLs and current titles.
+- Compare 28 and 56 days after each change against matched windows. Account for seasonality and changes in query mix.
+- For CTR tasks, compare at a similar average position, or report the position change alongside.
