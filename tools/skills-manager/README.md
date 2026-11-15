@@ -6,7 +6,7 @@ Anthropic **Skills API** (`/v1/skills`, beta `skills-2025-10-02`) via the
 official Python SDK.
 
 Built to apply the trigger-description fixes from
-[`docs/CLAUDE_SKILLS_AUDIT.md`](../../docs/CLAUDE_SKILLS_AUDIT.md); the 9
+[`2026-07-16 skills audit`](../../audits/2026-07-16-skills-audit.md); the 9
 fixes ship in [`audit_fixes.json`](audit_fixes.json), keyed to your skill IDs.
 
 ## Setup
@@ -64,7 +64,15 @@ python skills_manager.py update-description SKILL_ID --text "..." --dry-run
   see them — create the key under the same account/org as your claude.ai
   workspace. If they still don't appear, the claude.ai Settings → Capabilities
   → Skills UI is the fallback; the exact texts to paste are in
-  `docs/CLAUDE_SKILLS_AUDIT.md`.
+  [2026-07-16 skills audit](../../audits/2026-07-16-skills-audit.md).
+
 - **ID drift:** `apply-audit` matches by skill ID first and falls back to the
   skill name from the live listing, so re-uploaded skills with new IDs still
   resolve.
+
+## Offline validation
+
+From the repository root, run `python -m pip install -r tools/skills-manager/requirements-test.txt`
+and `python -m unittest discover -s tests -v`. CI runs these checks on pull requests
+and pushes to main. They validate the JSON/plain-text descriptions, YAML rewriting,
+length limits, local README links, and manager behavior without credentials or API calls.
